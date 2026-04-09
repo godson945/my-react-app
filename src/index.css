@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Outfit', system-ui, sans-serif;
+
+  /* Clean White & Navy Blue Palette */
+  --color-medical-primary: #FAFAFA; /* Pristine White */
+  --color-medical-secondary: #F0F4F8; /* Soft Navy-Gray */
+  --color-medical-accent: #1E3A8A; /* Bold Navy Blue */
+  --color-medical-highlight: #2563EB; /* Bright Blue */
+  --color-medical-text: #0F172A; /* Slate 900 for Headings/Primary Text */
+  --color-medical-text-dim: #334155; /* Slate 700 for secondary text */
+  
+  /* Glassmorphism Variables (Optimized for Light Theme) */
+  --color-glass-border: rgba(30, 58, 138, 0.1);
+  --color-glass-surface: rgba(255, 255, 255, 0.7);
+  --color-glass-highlight: rgba(255, 255, 255, 0.9);
+
+  /* Deep Navy Palette */
+  --color-midnight-purple: #0A1128; /* Very deep navy/black */
+  --color-neon-purple: #3B82F6; /* Vibrant Blue for original neon usage */
+  --color-deep-indigo: #172554; /* Slate 950 / Deep Navy */
+}
+
+/* Base Styles */
+body {
+  background-color: var(--color-medical-primary);
+  color: var(--color-medical-text);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--color-medical-highlight);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(0, 179, 179, 0.1); }
+  50% { box-shadow: 0 0 25px rgba(0, 179, 179, 0.3); }
+}
+
+@keyframes tilt {
+  0%, 100% { transform: rotate3d(0); }
+  50% { transform: rotate3d(1, 1, 0, 2deg); }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(10px, -10px); }
+  50% { transform: translate(-5px, 15px); }
+  75% { transform: translate(-15px, -5px); }
+}
+
+@keyframes magnetic-pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(99, 102, 241, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+}
+
+/* Utilities */
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite linear;
+}
+
+/* Glassmorphism Cards */
+.glass-panel {
+  background: var(--color-glass-surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-glass-border);
+  box-shadow: 0 8px 32px 0 rgba(99, 102, 241, 0.08);
+}
+
+.glass-panel:hover {
+  background: var(--color-glass-highlight);
+  border-color: var(--color-medical-accent);
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.15);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--color-medical-accent), var(--color-medical-highlight));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-gold {
+    background: linear-gradient(to right, #fceabb, #f8b500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
